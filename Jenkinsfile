@@ -15,7 +15,7 @@ pipeline {
     	 SECRET_KEY =  credentials('secret.key')
     	 ANYPOINT_CREDS = credentials('Anypoint-Staging')
     	 MVN = "mvn"
-		 //gitHost = "https://github.com/malevinso/${APPNAME}.git"
+		 gitHost = "https://github.com/malevinso/${APPNAME}.git"
 		 gitURL = "https://github.com/malevinso/${APPNAME}.git"
 	}
     stages {
