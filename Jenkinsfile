@@ -14,8 +14,8 @@ pipeline {
     	 SECRET_KEY =  credentials('secret.key')
     	 ANYPOINT_CREDS = credentials('Anypoint-Staging')
     	 MVN = "mvn"
-		 gitHost = "bitbucket.savagebeast.com/scm/es/${APPNAME}.git"
-		 gitURL = "https://bitbucket.savagebeast.com/scm/es/${APPNAME}.git"
+		 //gitHost = "https://github.com/malevinso/${APPNAME}.git"
+		 gitURL = "https://github.com/malevinso/${APPNAME}.git"
 	}
     stages {
        stage('Set Build Name') {
@@ -80,7 +80,7 @@ pipeline {
                          sh "${MVN} -P ${env.ENV} versions:set -DremoveSnapshot"
                          VERSION = readMavenPom().getVersion()
                          sh "git tag -a ${VERSION} -m \"Jenkins Version\"" 
-                         sh "git push --tags ${APPNAME}"
+                         sh "git push --tags origin"
                     }  else 
                     {
                        echo "Not Prod Branch, just updating snapshot version."
@@ -92,7 +92,7 @@ pipeline {
    					//sh "git checkout ${BRANCH}"
                     sh "git add -A ."
                     sh "git commit -m \"updated version ${VERSION}\""
-                    sh  "git push ${APPNAME}  HEAD:${BRANCH}"
+                    sh  "git push origin  HEAD:${BRANCH}"
             }
           }
         }
