@@ -15,7 +15,7 @@ pipeline {
     	 SECRET_KEY =  credentials('secret.key')
     	 ANYPOINT_CREDS = credentials('Anypoint-Staging')
     	 MVN = "mvn"
-		 gitHost = "https://github.com/malevinso/${APPNAME}.git"
+		 gitHost = "github.com/malevinso/${APPNAME}.git"
 		 gitURL = "https://github.com/malevinso/${APPNAME}.git"
 	}
     stages {
@@ -85,7 +85,7 @@ pipeline {
                     }  else 
                     {
                        echo "Not Prod Branch, just updating snapshot version."
-                       sh "git checkout ${BRANCH}"
+                       //sh "git checkout ${BRANCH}"
    				       sh "${MVN} -P ${env.ENV} build-helper:parse-version versions:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion}-SNAPSHOT versions:commit "
         			   VERSION = readMavenPom().getVersion()
                     }
