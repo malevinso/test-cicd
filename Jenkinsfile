@@ -81,7 +81,7 @@ pipeline {
                          sh "${MVN} -P ${env.ENV} versions:set -DremoveSnapshot"
                          VERSION = readMavenPom().getVersion()
                          sh "git tag -a ${VERSION} -m \"Jenkins Version\"" 
-                         sh "git push --tags origin"
+                         sh "(set +e;git push --tags origin; exit 0)"
                     }  else 
                     {
                        echo "Not Prod Branch, just updating snapshot version."
