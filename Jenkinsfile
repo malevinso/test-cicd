@@ -123,7 +123,7 @@ pipeline {
             		echo 'Deploy to Anypoint'
             		script {
             		//setEnvironmentVars(params.EnvironmentParam,params.BranchParam)
-            	         sh "${MVN} -P ${env.ENV} clean package deploy -DmuleDeploy -Dapp.runtime=4.3.0 -Dusername=${DEPLOY_CREDS_USR} -Dpassword=${DEPLOY_CREDS_PSW} -Dcloudhub.application.name=${APPNAME} -Denvironment=${env.ENVIRONMENT} -Dregion=${REGION} -Dworkers=${WORKERS} -DworkerType=${WORKER} -DsecretKey=${SECRET_KEY_PSW}"
+            	         sh "${MVN} -P ${env.ENV} clean package deploy -DmuleDeploy -Dapp.runtime=4.3.0 -Dusername=${DEPLOY_CREDS_USR} -Dpassword=${DEPLOY_CREDS_PSW} -Dcloudhub.application.name=${APPNAME} -Denvironment=${env.ENVIRONMENT} -Dregion=${REGION} -Dworkers=${WORKERS} -DworkerType=${WORKER} -DsecretKey=${SECRET_KEY}"
             		}
             }
          }
