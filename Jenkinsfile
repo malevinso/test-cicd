@@ -11,7 +11,7 @@ pipeline {
 	  	 DEPLOY_CREDS = credentials('Deployment')
     	 MULE_VERSION = '4.3.0'
     	 BG = "Pandora"
-    	 GIT_ACCESS credentials('github')
+    	 GIT_ACCESS = credentials('github')
     	 SECRET_KEY =  credentials('secret.key')
     	 ANYPOINT_CREDS = credentials('Anypoint-Staging')
     	 MVN = "mvn"
