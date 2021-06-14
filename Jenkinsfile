@@ -11,6 +11,7 @@ pipeline {
 	  	 DEPLOY_CREDS = credentials('Deployment')
     	 MULE_VERSION = '4.3.0'
     	 BG = "Pandora"
+    	 GIT_ACCESS credentials('github')
     	 SECRET_KEY =  credentials('secret.key')
     	 ANYPOINT_CREDS = credentials('Anypoint-Staging')
     	 MVN = "mvn"
@@ -69,11 +70,11 @@ pipeline {
    				    echo "Branch is ${BRANCH}";
 					//sh "git checkout ${BRANCH}"
    				   //sh "git remote set-url ${APPNAME} https://${GIT_ACCESS}@${gitHost}"
-   				   //sh "git remote set-url origin https://${GIT_ACCESS}@${gitHost}"
-					sh  "(set +e;git remote set-url origin git@github.com:malevinso/test-cicd.git; exit 0)"
-					sh "whoami"
+   				   sh "git remote set-url origin https://${GIT_ACCESS}@${gitHost}"
+					//sh  "(set +e;git remote set-url origin git@github.com:malevinso/test-cicd.git; exit 0)"
+					//sh "whoami"
    				   sh "git remote -v"
-   				   //sh "git config --global"
+   				   //sh "git config --global -l"
 					//sh "git status"
    				     if ( "${BRANCH}" ==~ ~/.*${prodBranch}.*/) {
    				        //echo "user ${GIT_ACCESS_USR}" 
