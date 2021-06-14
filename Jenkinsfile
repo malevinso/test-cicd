@@ -93,7 +93,7 @@ pipeline {
    					//sh "git checkout ${BRANCH}"
                     sh "git add -A ."
                     sh "git commit -m \"updated version ${VERSION}\""
-                    sh  "git push origin  HEAD:${BRANCH}"
+                    sh  "(set +e;git push origin  HEAD:${BRANCH};exit 0)"
             }
           }
         }
