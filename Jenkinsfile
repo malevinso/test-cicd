@@ -13,8 +13,7 @@ pipeline {
     	 BG = "Pandora"
     	 SECRET_KEY =  credentials('secret.key')
     	 ANYPOINT_CREDS = credentials('Anypoint-Staging')
-    	 //GIT_ACCESS = credentials('6ac99e8b-beaa-4d8d-98cf-ebeb4e5cffe5')
-    	 MVN = "/home/esbuild/bin/mvn"
+    	 MVN = "mvn"
 		 gitHost = "bitbucket.savagebeast.com/scm/es/${APPNAME}.git"
 		 gitURL = "https://bitbucket.savagebeast.com/scm/es/${APPNAME}.git"
 	}
