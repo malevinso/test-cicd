@@ -70,7 +70,7 @@ pipeline {
 					//sh "git checkout ${BRANCH}"
    				   //sh "git remote set-url ${APPNAME} https://${GIT_ACCESS}@${gitHost}"
    				   //sh "git remote set-url origin https://${GIT_ACCESS}@${gitHost}"
-					//sh  "(set +e;git remote remove jenkins ; exit 0)"
+					sh  "(set +e;git remote set-url origin git@github.com:malevinso/test-cicd.git; exit 0)"
 					sh "whoami"
    				   sh "git remote -v"
    				   //sh "git config --global"
