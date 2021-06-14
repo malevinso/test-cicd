@@ -80,7 +80,7 @@ pipeline {
    				        //echo "user ${GIT_ACCESS_USR}" 
                          sh "${MVN} -P ${env.ENV} versions:set -DremoveSnapshot"
                          VERSION = readMavenPom().getVersion()
-                         sh "git tag -a ${VERSION} -m \"Jenkins Version\"" 
+                         sh "(set +e;git tag -a ${VERSION} -m \"Jenkins Version\"; exit 0)" 
                          sh "(set +e;git push --tags origin; exit 0)"
                     }  else 
                     {
