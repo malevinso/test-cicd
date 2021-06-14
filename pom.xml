@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
   	<groupId>com.pandora.es.esb</groupId>
 	<artifactId>test-cicd2</artifactId>
-  	<version>0.1.12</version>
+  	<version>0.1.13</version>
   	<packaging>mule-application</packaging>
 	<name>esb-cicd-test3</name>
     <properties>
