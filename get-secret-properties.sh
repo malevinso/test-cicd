@@ -21,6 +21,7 @@ getValueFromVault () {
     echo $(vault kv get -field=${key} secret/${file} )
 }
 
+echo "Made it to secret-properties"
 
 ## Export variable
 export ANYPOINT_USERNAME=$(getValueFromVault 'anypoint.username' ${AP_CREDS}  )
