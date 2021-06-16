@@ -5,7 +5,7 @@
 	<artifactId>test-cicd2</artifactId>
 
 
-  	<version>0.1.17</version>
+  	<version>0.1.18-SNAPSHOT</version>
 
 
   	<packaging>mule-application</packaging>
