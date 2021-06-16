@@ -8,11 +8,11 @@ pipeline {
 	  	 devBranch = "develop"  
 	  	 prodBranch = "master"      
 	  	 stgBranch = "develop"   
-	  	 DEPLOY_CREDS = credentials('Deployment')
+	  	 // DEPLOY_CREDS = credentials('Deployment')
     	 MULE_VERSION = '4.3.0'
     	 BG = "Pandora"
     	 GIT_ACCESS = credentials('github')
-    	 SECRET_KEY =  credentials('secret.key')
+    	 // SECRET_KEY =  credentials('secret.key')
     	 ANYPOINT_CREDS = credentials('Anypoint-Staging')
     	 MVN = "mvn"
 		 gitHost = "github.com/malevinso/${APPNAME}.git"
@@ -123,7 +123,9 @@ pipeline {
             		echo 'Deploy to Anypoint'
             		script {
             		//setEnvironmentVars(params.EnvironmentParam,params.BranchParam)
-            	         sh "${MVN} -P ${env.ENV} clean package deploy -DmuleDeploy -Dapp.runtime=4.3.0 -Dusername=${DEPLOY_CREDS_USR} -Dpassword=${DEPLOY_CREDS_PSW} -Dcloudhub.application.name=${APPNAME} -Denvironment=${env.ENVIRONMENT} -Dregion=${REGION} -Dworkers=${WORKERS} -DworkerType=${WORKER} -DsecretKey=${SECRET_KEY}"
+            		sh "(set +x; . /get-secret-properties.sh)"
+						echo "Username: ${ANYPOINT_USERNAME}"
+            	        echo " ${MVN} -P ${env.ENV} clean package deploy -DmuleDeploy -Dapp.runtime=${MULE_VERSION} -Dusername=${DEPLOY_CREDS_USR} -Dpassword=${DEPLOY_CREDS_PSW} -Dcloudhub.application.name=${APPNAME} -Denvironment=${env.ENVIRONMENT} -Dregion=${REGION} -Dworkers=${WORKERS} -DworkerType=${WORKER} -DsecretKey=${SECRET_KEY}"
             		}
             }
          }
