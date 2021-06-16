@@ -21,7 +21,7 @@ getValueFromVault () {
     echo $(vault kv get -field=${key} secret/${file} )
 }
 
-echo "Made it to secret-properties"
+
 
 ## Export variable
 export ANYPOINT_USERNAME=$(getValueFromVault 'anypoint.username' ${AP_CREDS}  )
@@ -30,6 +30,8 @@ export ANYPOINT_PASSWORD=$(getValueFromVault 'anypoint.password'  ${AP_CREDS} )
 #export ANYPOINT_BUSINESS_GROUP_ID=$(getValueFromVault 'anypoint.business.group.id' ${AP_CREDS} ${ENV} udx)
 #export ANYPOINT_CLIENT_SECRET=$(getValueFromVault 'anypoint.platform.client_secret' ${AP_CREDS} ${ENV} udx) 
 #export ANYPOINT_CLIENT_ID=$(getValueFromVault 'anypoint.platform.client_id' ${AP_CREDS} ${ENV} udx)
+
+echo "Made it to secret-properties"
 
 
 

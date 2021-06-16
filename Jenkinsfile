@@ -124,8 +124,8 @@ pipeline {
             		script {
             		//setEnvironmentVars(params.EnvironmentParam,params.BranchParam)
             		sh "(set +x; . ./get-secret-properties.sh)"
-						echo "Username: ${ANYPOINT_USERNAME:-null}"
-            	        echo " ${MVN} -P ${env.ENV} clean package deploy -DmuleDeploy -Dapp.runtime=${MULE_VERSION} -Dusername=${DEPLOY_CREDS_USR} -Dpassword=${DEPLOY_CREDS_PSW} -Dcloudhub.application.name=${APPNAME} -Denvironment=${env.ENVIRONMENT} -Dregion=${REGION} -Dworkers=${WORKERS} -DworkerType=${WORKER} -DsecretKey=${SECRET_KEY}"
+						echo "Username: ${ANYPOINT_USERNAME:-stuff}"
+            	        #echo " ${MVN} -P ${env.ENV} clean package deploy -DmuleDeploy -Dapp.runtime=${MULE_VERSION} -Dusername=${DEPLOY_CREDS_USR} -Dpassword=${DEPLOY_CREDS_PSW} -Dcloudhub.application.name=${APPNAME} -Denvironment=${env.ENVIRONMENT} -Dregion=${REGION} -Dworkers=${WORKERS} -DworkerType=${WORKER} -DsecretKey=${SECRET_KEY}"
             		}
             }
          }
